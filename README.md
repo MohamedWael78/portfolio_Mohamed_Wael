@@ -1,16 +1,83 @@
-# React + Vite
+# Mohamed Wael - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal **portfolio** website built with React, Tailwind CSS, and Vite.  
+It showcases my projects, skills, and experience as a developer.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+- React (Vite)
+- Tailwind CSS
+- JavaScript (ES6+)
+- HTML5 & CSS3
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/` – main source code (components, pages, hooks, etc.)
+- `public/` – static assets
+- `package.json` – project dependencies and scripts
+- `vite.config.*` – Vite configuration
+
+---
+
+## 🛠 Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/MohamedWael78/portfolio_Mohamed_Wael.git
+cd portfolio_Mohamed_Wael
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run development server
+
+```bash
+npm run dev
+```
+
+The app will usually run on:  
+`http://localhost:5173/` (or another port shown in the terminal).
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+### 5. Preview production build (optional)
+
+```bash
+npm run preview
+```
+
+---
+
+## 🌐 Live Demo
+
+> (Add the deployed link here once you deploy the portfolio, e.g. Netlify, Vercel, or GitHub Pages.)
+
+---
+
+## 📸 Features
+
+- Responsive design for desktop, tablet, and mobile
+- Hero section with introduction
+- Projects section to showcase my work
+- Skills / Tech stack section
+- Contact or social links section
+
+---
+
+## 📬 Contact
+
+- GitHub: [MohamedWael78](https://github.com/MohamedWael78)
+- (Add LinkedIn / email here if you want)
