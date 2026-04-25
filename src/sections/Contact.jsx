@@ -62,16 +62,22 @@ export const Contact = () => {
       href: `mailto:${portfolioData.personal.email}`,
     },
     {
+      icon: Phone,
+      label: "Phone / Call",
+      value: portfolioData.personal.phone,
+      href: `tel:${portfolioData.personal.phone}`,
+    },
+    {
+      icon: MessageSquare,
+      label: "WhatsApp",
+      value: "Chat on WhatsApp",
+      href: portfolioData.personal.whatsapp,
+    },
+    {
       icon: Linkedin,
       label: "LinkedIn",
       value: "mohamed-wael-mohamed",
       href: portfolioData.personal.linkedin,
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "MohamedWael78",
-      href: portfolioData.personal.github,
     },
   ];
 

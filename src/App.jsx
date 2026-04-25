@@ -11,15 +11,14 @@ import { Footer } from "./layout/Footer";
 import { Chatbot } from "@/components/Chatbot";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { CustomCursor } from "@/components/CustomCursor";
 import { DynamicBackground } from "@/components/DynamicBackground";
+import { Services } from "@/sections/Services";
 
 function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <div className="relative min-h-screen overflow-x-hidden text-foreground selection:bg-primary/30 selection:text-primary z-0">
-          <CustomCursor />
           <DynamicBackground />
           <Navbar />
           <main>
@@ -30,6 +29,7 @@ function App() {
             <Experience />
             <Education />
             <Certifications />
+            <Services />
             <Contact />
           </main>
           <Footer />

@@ -1,39 +1,53 @@
-import { BrainCircuit, Database, LineChart, Cpu, Zap, Activity, Microscope, Sliders } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { 
+  BrainCircuit, 
+  Database, 
+  LineChart, 
+  Cpu, 
+  Zap, 
+  Activity, 
+  Microscope, 
+  Sliders, 
+  Briefcase, 
+  Terminal, 
+  BookOpen,
+  BarChart3,
+  Eye,
+  Layers
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, staggerContainer } from "../utils/animations";
 import { usePortfolioData, useLanguage } from "@/context/LanguageContext";
 
-const highlights = [
-  {
-    icon: BrainCircuit,
-    title: "AI Modeling",
-    description: "Developing and fine-tuning machine learning models for predictive accuracy.",
-  },
-  {
-    icon: Database,
-    title: "Data Engineering",
-    description: "Structuring complex datasets and building robust pipelines.",
-  },
-  {
-    icon: LineChart,
-    title: "Insight Analysis",
-    description: "Transforming raw data into actionable business intelligence.",
-  },
-  {
-    icon: Sliders,
-    title: "Smart Control",
-    description: "Integrating sensor logic with automated engineering systems.",
-  },
-];
+const iconMap = {
+  BrainCircuit,
+  Database,
+  LineChart,
+  Cpu,
+  Zap,
+  Activity,
+  BarChart3,
+  Eye,
+  Layers
+};
+
+// Highlights now pulled dynamically from portfolioData.personal.services
 
 export const About = () => {
   const portfolioData = usePortfolioData();
   const { t, language } = useLanguage();
+  const [activePerspective, setActivePerspective] = useState("official");
+
+  const switcherModes = [
+    { id: "official", label: t('perspective_official'), icon: Briefcase },
+    { id: "tech", label: t('perspective_tech'), icon: Terminal },
+    { id: "story", label: t('perspective_story'), icon: BookOpen },
+  ];
 
   return (
     <section id="about" className="py-32 relative overflow-hidden bg-surface/20">
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-full h-[500px] bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.05),transparent_70%)]" />
+      <div className="absolute top-0 right-0 w-full h-[500px] bg-[radial-gradient(circle_at_top_right,rgba(var(--primary-rgb),0.05),transparent_70%)]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
@@ -46,37 +60,73 @@ export const About = () => {
           {/* Left Column - Story & Philosophy */}
           <div className="space-y-12">
             <motion.div variants={fadeIn("right", 0.1)}>
-              <span className="text-primary text-xs font-black tracking-[0.4em] uppercase px-5 py-2 rounded-full glass border border-primary/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+              <span className="text-primary text-xs font-black tracking-[0.4em] uppercase px-5 py-2 rounded-full glass border border-primary/20 shadow-[0_0_15px_rgba(var(--primary-rgb),0.1)]">
                 {t('biography')}
               </span>
             </motion.div>
 
-            <motion.div variants={fadeIn("right", 0.3)} className="space-y-6">
+            <motion.div variants={fadeIn("right", 0.3)} className="space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold leading-[1.1] text-foreground">
                 {t('about_title') || 'Bridging Two Worlds.'}
               </h2>
 
-              <div className="space-y-6 text-muted-foreground text-lg leading-relaxed max-w-xl">
-                <p>{portfolioData.personal.about}</p>
+              {/* Perspective Switcher UI */}
+              <div className="flex gap-2 p-1.5 glass rounded-2xl w-fit">
+                {switcherModes.map((mode) => (
+                  <button
+                    key={mode.id}
+                    onClick={() => setActivePerspective(mode.id)}
+                    className={`relative px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 flex items-center gap-2 group ${
+                      activePerspective === mode.id ? "text-background" : "text-muted-foreground hover:text-primary"
+                    }`}
+                  >
+                    {activePerspective === mode.id && (
+                      <motion.div
+                        layoutId="activePerspectiveBg"
+                        className="absolute inset-0 bg-primary z-0 rounded-xl"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <mode.icon size={12} className="relative z-10" />
+                    <span className="relative z-10">{mode.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative min-h-[160px] text-muted-foreground text-lg leading-relaxed max-w-xl">
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={activePerspective}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="whitespace-pre-line"
+                  >
+                    {portfolioData.personal.perspectives[activePerspective]}
+                  </motion.p>
+                </AnimatePresence>
               </div>
             </motion.div>
 
-            {/* Interactive Infographic Mini-Section */}
             <motion.div 
               variants={fadeIn("up", 0.5)}
               className="grid sm:grid-cols-2 gap-6"
             >
-              {highlights.slice(0, 4).map((item, idx) => (
-                <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-foreground/5 border border-foreground/5 hover:border-primary/20 transition-all group">
-                  <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
-                    <item.icon className="text-primary w-5 h-5 group-hover:text-black transition-colors" />
+              {portfolioData.personal.services.slice(0, 4).map((service, idx) => {
+                const Icon = iconMap[service.icon] || Activity;
+                return (
+                  <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-foreground/5 border border-foreground/5 hover:border-primary/20 transition-all group">
+                    <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                       <Icon className="text-primary w-5 h-5 group-hover:text-black transition-colors" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-black text-foreground uppercase tracking-wider">{service.title}</h4>
+                      <p className="text-xs text-muted-foreground mt-1 leading-tight">{service.description.substring(0, 60)}...</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-black text-foreground uppercase tracking-wider">{item.title}</h4>
-                    <p className="text-xs text-muted-foreground mt-1 leading-tight">{item.description}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </motion.div>
           </div>
 
@@ -113,7 +163,7 @@ export const About = () => {
                   rotate: [0, 5, 0] 
                 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-10 -right-10 z-30 w-56 h-56 glass rounded-[30px] p-6 border border-primary/50 shadow-[0_0_50px_rgba(245,158,11,0.2)] flex flex-col justify-between"
+                className="absolute -top-10 -right-10 z-30 w-56 h-56 glass rounded-[30px] p-6 border border-primary/50 shadow-[0_0_50px_rgba(var(--primary-rgb),0.2)] flex flex-col justify-between"
               >
                 <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-black">
                   <BrainCircuit size={24} />
@@ -146,7 +196,7 @@ export const About = () => {
                    <div className="flex gap-1">
                      <span className="w-2 h-4 bg-primary/20 rounded-sm" />
                      <span className="w-2 h-6 bg-primary/40 rounded-sm" />
-                     <span className="w-2 h-8 bg-primary rounded-sm shadow-[0_0_10px_#f59e0b]" />
+                     <span className="w-2 h-8 bg-primary rounded-sm shadow-[0_0_10px_rgba(var(--primary-rgb),0.8)]" />
                      <span className="w-2 h-5 bg-primary/20 rounded-sm" />
                    </div>
                    <div className="text-[10px] font-black text-primary uppercase">Analytics</div>

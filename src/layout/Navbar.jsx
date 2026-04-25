@@ -3,9 +3,11 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { useLanguage } from "@/context/LanguageContext";
+import Magnetic from "@/components/Magnetic";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
@@ -60,13 +62,21 @@ export const Navbar = () => {
 
         {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-4 z-50">
-          <button onClick={toggleTheme} className="p-2 glass rounded-full text-foreground hover:text-primary transition-colors">
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-          <button onClick={toggleLanguage} className="p-2 glass rounded-full text-foreground hover:text-primary transition-colors font-bold text-sm">
-            {language === "en" ? "عربي" : "EN"}
-          </button>
-          <Button size="sm">{t ? t("contact_me") : "Contact Me"}</Button>
+          <Magnetic>
+            <button onClick={toggleTheme} className="p-2 glass rounded-full text-foreground hover:text-primary transition-colors">
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+          </Magnetic>
+          <Magnetic>
+            <button onClick={toggleLanguage} className="p-2 glass rounded-full text-foreground hover:text-primary transition-colors font-bold text-sm">
+              {language === "en" ? "عربي" : "EN"}
+            </button>
+          </Magnetic>
+          <a href="#contact">
+            <Magnetic>
+              <Button size="sm">{t ? t("contact_me") : "Contact Me"}</Button>
+            </Magnetic>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -101,9 +111,11 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
-              Contact Me
-            </Button>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full">
+                {t ? t("contact_me") : "Contact Me"}
+              </Button>
+            </a>
           </div>
         </div>
       )}

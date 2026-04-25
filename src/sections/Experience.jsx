@@ -9,7 +9,7 @@ export const Experience = () => {
   return (
     <section id="experience" className="py-32 relative overflow-hidden bg-background">
       {/* Background accents */}
-      <div className="absolute top-0 right-0 w-full h-[600px] bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.03),transparent_70%)]" />
+      <div className="absolute top-0 right-0 w-full h-[600px] bg-[radial-gradient(circle_at_top_right,rgba(var(--primary-rgb),0.03),transparent_70%)]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
@@ -39,7 +39,7 @@ export const Experience = () => {
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-primary/80 via-primary/20 to-transparent md:-translate-x-1/2 shadow-[0_0_15px_rgba(245,158,11,0.3)]"
+            className="absolute left-0 md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-primary/80 via-primary/20 to-transparent md:-translate-x-1/2 shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)]"
           />
 
           <div className="space-y-24">
@@ -59,47 +59,55 @@ export const Experience = () => {
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ type: "spring", delay: 0.5 }}
-                  className="absolute left-0 md:left-1/2 top-0 w-6 h-6 rounded-full bg-background border-4 border-primary z-20 md:-translate-x-1/2 shadow-[0_0_15px_#f59e0b]" 
+                  className="absolute left-0 md:left-1/2 top-0 w-6 h-6 rounded-full bg-background border-4 border-primary z-20 md:-translate-x-1/2 shadow-[0_0_15px_rgba(var(--primary-rgb),0.8)]" 
                 />
 
                 {/* Content Side */}
                 <div className="w-full md:w-[45%]">
                   <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="glass p-10 rounded-[40px] border border-foreground/5 hover:border-primary/30 transition-all duration-500 shadow-2xl relative group overflow-hidden"
+                    whileHover={{ 
+                      y: -15,
+                      scale: 1.01
+                    }}
+                    transition={{ type: "spring", stiffness: 150 }}
+                    className="glass-strong p-12 md:p-16 rounded-[60px] border border-white/5 hover:border-primary/40 transition-all duration-700 shadow-2xl relative group overflow-hidden perspective-1000"
                   >
-                    {/* Background institutional visual hint (Subtle) */}
-                    <div className="absolute top-0 right-0 p-8 opacity-[0.02] group-hover:opacity-10 transition-opacity">
-                        <Briefcase size={120} className="text-primary" />
+                    {/* Background visual watermarks */}
+                    <div className="absolute -top-10 -right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-all duration-1000 select-none">
+                        <Briefcase size={220} strokeWidth={1} className="text-primary" />
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 mb-6">
-                      <span className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
-                        {exp.period}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-2xl font-black mb-2 text-foreground group-hover:text-primary transition-colors tracking-tight">
-                      {exp.role}
-                    </h3>
-                    <div className="flex items-center gap-2 text-muted-foreground font-bold text-sm mb-6 uppercase tracking-wider">
-                      <Zap size={14} className="text-primary" />
-                      {exp.company}
-                    </div>
-                    
-                    <p className="text-muted-foreground leading-relaxed mb-8 text-sm italic">
-                      {exp.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIdx) => (
-                        <span
-                          key={techIdx}
-                          className="px-3 py-1.5 rounded-xl bg-surface/80 border border-foreground/5 text-[11px] font-bold text-muted-foreground group-hover:text-primary transition-colors"
-                        >
-                          {tech}
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-10">
+                        <span className="px-6 py-2 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.4em] border border-primary/20 shadow-inner">
+                          {exp.period}
                         </span>
-                      ))}
+                        <div className="flex-grow h-px bg-gradient-to-r from-primary/20 to-transparent" />
+                      </div>
+                      
+                      <h3 className="text-4xl md:text-5xl font-black mb-4 text-foreground group-hover:text-primary transition-colors tracking-tighter leading-none">
+                        {exp.role}
+                      </h3>
+                      
+                      <div className="flex items-center gap-4 text-muted-foreground font-black text-sm mb-12 uppercase tracking-[0.3em]">
+                        <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary-rgb),0.8)]" />
+                        {exp.company}
+                      </div>
+                      
+                      <p className="text-muted-foreground leading-relaxed mb-12 text-lg italic max-w-2xl opacity-80 group-hover:opacity-100 transition-opacity">
+                        {exp.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-3">
+                        {exp.technologies.map((tech, techIdx) => (
+                          <span
+                            key={techIdx}
+                            className="px-5 py-2.5 rounded-2xl bg-white/[0.03] border border-white/5 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground group-hover:text-primary group-hover:border-primary/30 transition-all"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 </div>

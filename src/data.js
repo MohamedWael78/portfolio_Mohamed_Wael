@@ -3,23 +3,112 @@ export const portfolioDataEN = {
     skills: "My technical arsenal is a carefully curated blend of data engineering, artificial intelligence, and software development tools. I continuously refine these skills to architect robust, scalable, and highly predictive systems tailored for complex business challenges.",
     projects: "Below is a comprehensive showcase of my professional portfolio. Each case study represents a unique fusion of domain expertise and advanced technological application, from predictive analytics to automated computer vision.",
     education: "A solid theoretical foundation paired with rigorous practical application. My academic journey has been defined by a relentless pursuit of engineering excellence and cutting-edge data science methodologies.",
-    certifications: "In the rapidly evolving landscape of AI and Data, continuous learning is non-negotiable. These professional validations reflect my commitment to mastering industry-standard tools and cloud architectures."
+    certifications: "In the rapidly evolving landscape of AI and Data, continuous learning is non-negotiable. These professional validations reflect my commitment to mastering industry-standard tools and cloud architectures.",
+    services: "I bridge the gap between complex data and actionable business strategy. My services are designed to empower organizations through customized AI, deep analytical insights, and robust engineering solutions."
   },
   personal: {
-    name: "Mohamed Wael Mohamed",
+    name: "Mohamed Wael",
     title: "Applied Artificial Intelligence & Data Analyst",
     email: "mohamedwael2077@gmail.com",
     linkedin: "https://linkedin.com/in/mohamed-wael-mohamed-9772803a4",
     github: "https://github.com/MohamedWael78",
     avatar: "/profile-photo.jpg",
-    about: "I am a dedicated Applied AI and Data Analysis specialist with a foundational background in Agricultural Engineering from Mansoura University. My unique interdisciplinary perspective allows me to bridge the vast gap between traditional engineering principles and advanced, data-driven software solutions. \n\nRecently, I completed a rigorous, nine-month intensive training program in Applied Artificial Intelligence and Data Analysis through the prestigious Digital Pioneers Initiative (in collaboration with MCIT and the Military Academy). Throughout this program, I honed my expertise in machine learning, deep neural networks, and cloud technologies.\n\nI am deeply passionate about building intelligent systems that do more than just process information—they understand it, predict future trends, and deliver actionable insights. Whether it involves designing automated IoT systems for precision agriculture or creating complex financial forecasting dashboards in Power BI, my ultimate focus remains on driving tangible, systemic impact."
+    phone: "01018575140",
+    whatsapp: "https://wa.me/201018575140",
+    perspectives: {
+      official: "I am a dedicated Applied AI and Data Analysis specialist with a foundational background in Agricultural Engineering from Mansoura University. My unique interdisciplinary perspective allows me to bridge the vast gap between traditional engineering principles and advanced, data-driven software solutions. \n\nRecently, I completed a rigorous, nine-month intensive training program in Applied Artificial Intelligence and Data Analysis through the prestigious Digital Pioneers Initiative (in collaboration with MCIT and the Military Academy). Throughout this program, I honed my expertise in machine learning, deep neural networks, and cloud technologies.",
+      tech: "Input Data: [B.Sc. AgriEng + 9mo Intensive AI Residency]. Stack: {Python, Scikit-Learn, TensorFlow, FastAPI, Azure}. Core Competencies: [Supervised Learning, Neural Architecture Design, Data Pipelining]. \n\nI treat data as a high-fidelity sensor for systemic reality. My workflow prioritizes mathematical validation and scalable model deployment. Currently focusing on the deployment of Agentic AI systems to optimize complex operational environments.",
+      story: "My journey started in the fields of Mansoura, understanding the physical mechanics of Agricultural Engineering. But I realized that the real bridge to the future wasn't just mechanical—it was mathematical. \n\nI pivoted to AI not just to write code, but to build 'digital brains' that solve real-world problems. From designing smart irrigation systems to predicting customer churn, I am driven by the transformation of raw, chaotic data into clear, actionable intelligence."
+    },
+    metrics: [
+      { label: "Models Trained", value: "24", suffix: "+" },
+      { label: "Data points Cleaned", value: "1.2", suffix: "M+" },
+      { label: "Predictive Precision", value: "98", suffix: "%" }
+    ],
+    services: [
+      {
+        title: "Predictive AI Solutions",
+        description: "Developing custom machine learning models to forecast trends, automate complex decision-making, and unlock hidden opportunities in your data.",
+        icon: "BrainCircuit",
+        features: ["Classification & Regression", "Neural Network Design", "Time-Series Forecasting"]
+      },
+      {
+        title: "Advanced Data Visualization",
+        description: "Crafting interactive Power BI and Tableau dashboards that transform chaotic datasets into clear, actionable visual narratives for stakeholders.",
+        icon: "BarChart3",
+        features: ["Automated Reporting", "KPI Tracking", "Real-time Analytics"]
+      },
+      {
+        title: "End-to-End Data Engineering",
+        description: "Architecting robust data pipelines and automated scraping systems to ensure your data is clean, structured, and ready for advanced analysis.",
+        icon: "Database",
+        features: ["ETL Pipelining", "Web Scraping", "SQL Database Design"]
+      },
+      {
+        title: "Smart Engineering Systems",
+        description: "Merging agricultural engineering principles with AI to develop automated monitoring, smart irrigation, and precision operative systems.",
+        icon: "Cpu",
+        features: ["IoT Integration", "Process Automation", "System Optimization"]
+      },
+      {
+        title: "Computer Vision Systems",
+        description: "Implementing advanced image recognition and object detection models for automated monitoring, quality control, and visual inspection.",
+        icon: "Eye",
+        features: ["Object Detection", "Image Classification", "Real-time Monitoring"]
+      },
+      {
+        title: "Big Data & Automation",
+        description: "Scaling data solutions for massive datasets and automating repetitive workflows to save time and eliminate human error in processing.",
+        icon: "Layers",
+        features: ["Workflow Automation", "Large-scale Processing", "Error Reduction"]
+      }
+    ]
   },
   skills: [
-    { category: "Programming & Frameworks", items: ["Python", "SQL", "FastAPI", "NumPy", "Pandas", "Scikit-Learn"] },
-    { category: "AI & Machine Learning", items: ["Machine Learning", "Deep Learning", "TensorFlow", "Keras"] },
-    { category: "Data Visualization", items: ["Power BI", "Tableau", "Excel"] },
-    { category: "Cloud", items: ["Azure Cloud", "AWS Cloud"] },
-    { category: "Analysis", items: ["SPSS", "Power BI", "Tableau", "Excel"] }
+    { 
+      category: "AI & Machine Learning", 
+      items: [
+        { name: "Machine Learning", description: "Designing predictive models that identify patterns and automate decision-making processes." },
+        { name: "Deep Learning", description: "Architecting multi-layered neural networks for computer vision and advanced NLP tasks." },
+        { name: "TensorFlow", description: "Comprehensive open-source platform for training and deploying large-scale neural models." },
+        { name: "Keras", description: "High-level API designed to facilitate rapid prototyping and testing of deep learning architectures." }
+      ] 
+    },
+    { 
+      category: "Programming & Frameworks", 
+      items: [
+        { name: "Python", description: "Universal language for AI development, data automation, and back-end integration." },
+        { name: "Scikit-Learn", description: "The industry standard for implementing traditional machine learning algorithms and pipelines." },
+        { name: "SQL", description: "Database management system for architecting and querying complex data structures." },
+        { name: "FastAPI", description: "Modern, high-performance web framework for deploying scalable AI microservices." },
+        { name: "Pandas", description: "Essential tool for structured data frames, manipulation, and advanced analytical tasks." },
+        { name: "NumPy", description: "Fundamental library for large-scale numerical computing and array manipulation." }
+      ] 
+    },
+    { 
+      category: "Cloud", 
+      items: [
+        { name: "Azure Cloud", description: "Deploying enterprise AI solutions and managing virtual machines on Microsoft's cloud infrastructure." },
+        { name: "AWS Cloud", description: "Leveraging distributed computing and S3 storage for resilient data science architectures." }
+      ] 
+    },
+    { 
+      category: "Data Visualization", 
+      items: [
+        { name: "Power BI", description: "Advanced business intelligence tool for crafting interactive dashboards and data stories." },
+        { name: "Tableau", description: "Dynamic visualization platform for exploratory data analysis and real-time insights." },
+        { name: "Excel", description: "Standard tool for quantitative data organization, advanced formulas, and pivot reporting." }
+      ] 
+    },
+    { 
+      category: "Analysis", 
+      items: [
+        { name: "SPSS", description: "Specialized statistical software for deep data mining and complex social science research." },
+        { name: "Power BI", description: "Integrating multi-source data to perform real-time operational and strategic analysis." },
+        { name: "Tableau", description: "Transforming raw analytical results into actionable visual intelligence for decision makers." },
+        { name: "Excel", description: "Power Query and Pivot analysis for rapid data cleaning and localized financial modeling." }
+      ] 
+    }
   ],
   allSkills: ["SQL", "Python", "Machine Learning", "Deep Learning", "Power BI", "Tableau", "AWS Cloud", "Azure Cloud", "FastAPI", "NumPy", "Pandas", "TensorFlow", "Pytorch", "Keras", "Scikit-Learn"],
   projects: [
@@ -164,23 +253,112 @@ export const portfolioDataAR = {
     skills: "ترسانتي التقنية هي مزيج منتقى بعناية من هندسة البيانات، والذكاء الاصطناعي، وأدوات تطوير البرمجيات. أقوم باستمرار بصقل هذه المهارات لهندسة أنظمة قوية، وقابلة للتوسع، وعالية الدقة التنبؤية، ومصممة خصيصاً لمواجهة التحديات المؤسسية المعقدة.",
     projects: "فيما يلي عرض شامل لمحفظة أعمالي الاحترافية. تُمثل كل حالة دراسية اندماجاً فريداً بين الخبرة الميدانية والتطبيقات التكنولوجية المتقدمة، بدءاً من التحليلات التنبؤية ووصولاً إلى أنظمة رؤية الحاسب الآلية.",
     education: "أساس نظري صلب مقترن بالتطبيق العملي الصارم. اتسمت رحلتي الأكاديمية بالسعي الدؤوب لتحقيق التميز الهندسي وتطبيق أحدث منهجيات علوم البيانات والذكاء الاصطناعي.",
-    certifications: "في المشهد التقني سريع التطور للذكاء الاصطناعي والبيانات، أصبح التعلم المستمر ضرورة حتمية للنجاح. تعكس هذه الاعتمادات المهنية التزامي بإتقان أدوات الذكاء القياسية وهندسات الحوسبة السحابية."
+    certifications: "في المشهد التقني سريع التطور للذكاء الاصطناعي والبيانات، أصبح التعلم المستمر ضرورة حتمية للنجاح. تعكس هذه الاعتمادات المهنية التزامي بإتقان أدوات الذكاء القياسية وهندسات الحوسبة السحابية.",
+    services: "أقوم بسد الفجوة بين البيانات المعقدة واستراتيجيات الأعمال القابلة للتنفيذ. صُممت خدماتي لتمكين المؤسسات من خلال حلول الذكاء الاصطناعي المخصصة، والتحليلات العميقة، والحلول الهندسية المتينة."
   },
   personal: {
-    name: "محمد وائل محمد",
+    name: "محمد وائل",
     title: "متخصص في الذكاء الاصطناعي التطبيقي وتحليل البيانات",
     email: "mohamedwael2077@gmail.com",
     linkedin: "https://linkedin.com/in/mohamed-wael-mohamed-9772803a4",
     github: "https://github.com/MohamedWael78",
     avatar: "/profile-photo.jpg",
-    about: "أنا متخصص شغوف ومتفانٍ في الذكاء الاصطناعي التطبيقي وتحليل البيانات، مع وجود أساس أكاديمي متين في الهندسة الزراعية والنظم الآلية من جامعة المنصورة. تمنحني هذه الخلفية التقنية المتداخلة منظوراً فريداً وسعة استثنائية لسد الفجوة بين المبادئ الهندسية التقليدية وبين الحلول البرمجية المتطورة والقائمة على البيانات.\n\nتخرجت مؤخراً بنجاح من برنامج تدريبي مكثف وصارم استمر قرابة التسعة أشهر، ضمن مسار الذكاء الاصطناعي التطبيقي وعلوم البيانات بقيادة مبادرة رواد مصر الرقمية (بالتعاون المشترك بين وزارة الاتصالات والأكاديمية العسكرية). وخلال هذا البرنامج المكثف، تمكنت من تطوير خبراتي وهندسة معرفتي بشكل تام في نطاقات تعلم الآلة (Machine Learning)، وبناء الشبكات العصبية العميقة، والبنى التحتية السحابية.\n\nإن شغفي الحقيقي يكمن في هندسة وبناء أنظمة بالغة الذكاء لا تكتفي بمجرد معالجة المعلومات الجامدة، بل تتعداها لفهم الأنماط، والتنبؤ بالتوجهات المستقبلية، وتقديم استبصارات ورؤى تحليلية تدعم اتخاذ القرارات. وسواء كان ذلك بنمذجة مجسات وعقول إلكترونية للزراعة الدقيقة، أو بناء لوحات تحكم مالية إحصائية بالغة التعقيد، فإن التركيز والغاية دائماً وأبداً ينصب نحو ترك تأثير عملي ومنهجي مستدام."
+    phone: "01018575140",
+    whatsapp: "https://wa.me/201018575140",
+    perspectives: {
+      official: "أنا متخصص شغوف ومتفانٍ في الذكاء الاصطناعي التطبيقي وتحليل البيانات، مع وجود أساس أكاديمي متين في الهندسة الزراعية والنظم الآلية من جامعة المنصورة. تمنحني هذه الخلفية التقنية المتداخلة منظوراً فريداً لسد الفجوة بين المبادئ الهندسية التقليدية والحلول البرمجية المتطورة والقائمة على البيانات.\n\nتخرجت مؤخراً من برنامج تدريبي مكثف استمر 9 أشهر ضمن مسار الذكاء الاصطناعي التطبيقي وعلوم البيانات بقيادة مبادرة رواد مصر الرقمية (MCIT). خلال هذه الرحلة، صقلت مهاراتي في هندسة التعلم الآلي، وبناء الشبكات العصبية العميقة، والبنى السحابية الحديثة.",
+      tech: "مدخلات البيانات: [بكالوريوس هندسة زراعية + زمالة مكثفة في AI لمدة 9 أشهر]. التقنيات الأساسية: {Python, Scikit-Learn, TensorFlow, FastAPI, Azure}. القدرات الجوهرية: [تصميم الشبكات العصبية، هندسة مسارات البيانات، التعلم الخاضع للإشراف]. \n\nأتعامل مع البيانات كمستشعر فائق الدقة للواقع. أولويات سير العمل لدي تشمل التحقق الرياضي الصارم ونشر النماذج القابلة للتوسع. أركز حالياً على أنظمة الذكاء الاصطناعي الوكيل (Agentic AI) لتحسين البيئات التشغيلية المعقدة.",
+      story: "بدأت رحلتي في مزارع المنصورة، حيث كنت أفهم الميكانيكا الفيزيائية للهندسة الزراعية. لكنني أدركت سريعاً أن الجسر الحقيقي للمستقبل ليس ميكانيكياً فحسب، بل هو جسر رياضي وعقلي. \n\nانتقلت إلى عالم الذكاء الاصطناعي ليس فقط لكتابة الكود، بل لبناء 'عقول رقمية' تحل المشكلات الحقيقية. من تصميم أنظمة الري الذكية إلى التنبؤ بسلوك العملاء، يحركني دائماً هذا التحول الساحر للبيانات الخام الفوضوية إلى معلومات استراتيجية واضحة وقابلة للتنفيذ."
+    },
+    metrics: [
+      { label: "نماذج مُدربة", value: "24", suffix: "+" },
+      { label: "ملايين البيانات المعالجة", value: "1.2", suffix: "+" },
+      { label: "معدل الدقة", value: "98", suffix: "%" }
+    ],
+    services: [
+      {
+        title: "حلول الذكاء الاصطناعي التنبؤي",
+        description: "تطوير نماذج تعلم آلي مخصصة للتنبؤ بالاتجاهات، وأتمتة اتخاذ القرارات المعقدة، وفتح الفرص المخفية في بياناتك.",
+        icon: "BrainCircuit",
+        features: ["التصنيف والانحدار", "تصميم الشبكات العصبية", "التنبؤ بالسلاسل الزمنية"]
+      },
+      {
+        title: "تصوير البيانات المتقدم",
+        description: "تصميم لوحات تحكم تفاعلية (Power BI & Tableau) تحول مجموعات البيانات الفوضوية إلى قصص بصرية واضحة وقابلة للتنفيذ.",
+        icon: "BarChart3",
+        features: ["تقارير مؤتمتة", "تتبع مؤشرات الأداء (KPI)", "تحليلات فورية"]
+      },
+      {
+        title: "هندسة البيانات المتكاملة",
+        description: "بناء مسارات بيانات قوية وأنظمة كشط آلية لضمان أن بياناتك نظيفة، ومنظمة، وجاهزة للتحليلات المتقدمة.",
+        icon: "Database",
+        features: ["ETL Pipelines", "كشط الويب الآلي", "تصميم قواعد SQL"]
+      },
+      {
+        title: "الأنظمة الهندسية الذكية",
+        description: "دمج مبادئ الهندسة الزراعية مع الذكاء الاصطناعي لتطوير أنظمة مراقبة آلية، وري ذكي، وأنظمة تشغيل دقيقة.",
+        icon: "Cpu",
+        features: ["تكامل IoT", "أتمتة العمليات", "تحسين كفاءة الأنظمة"]
+      },
+      {
+        title: "أنظمة الرؤية الحاسوبية",
+        description: "تطبيق نماذج متقدمة للتعرف على الصور واكتشاف الأشياء للمراقبة الآلية، ومراقبة الجودة، والفحص البصري الدقيق.",
+        icon: "Eye",
+        features: ["اكتشاف الأشياء", "تصنيف الصور", "المراقبة الفورية"]
+      },
+      {
+        title: "البيانات الضخمة والأتمتة",
+        description: "توسيع حلول البيانات للتعامل مع المجموعات الضخمة وأتمتة سير العمل المتكرر لتوفير الوقت وتقليل الأخطاء البشرية.",
+        icon: "Layers",
+        features: ["أتمتة سير العمل", "المعالجة واسعة النطاق", "تقليل الأخطاء"]
+      }
+    ]
   },
   skills: [
-    { category: "البرمجة وإطارات العمل", items: ["Python", "SQL", "FastAPI", "NumPy", "Pandas", "Scikit-Learn"] },
-    { category: "الذكاء الاصطناعي وتعلم الآلة", items: ["Machine Learning", "Deep Learning", "TensorFlow", "Keras"] },
-    { category: "تصوير البيانات", items: ["Power BI", "Tableau", "Excel"] },
-    { category: "الخدمات السحابية", items: ["Azure Cloud", "AWS Cloud"] },
-    { category: "التحليل", items: ["SPSS", "Power BI", "Tableau", "Excel"] }
+    { 
+      category: "الذكاء الاصطناعي وتعلم الآلة", 
+      items: [
+        { name: "Machine Learning", description: "بناء النماذج التنبؤية التي تعتمد على التعرف على الأنماط لتسهيل اتخاذ القرارات المؤتمتة." },
+        { name: "Deep Learning", description: "هندسة الشبكات العصبية العميقة لمهام رؤية الحاسب ومعالجة اللغات الطبيعية (NLP)." },
+        { name: "TensorFlow", description: "منصة شاملة مفتوحة المصدر لتدريب ونشر نماذج الشبكات العصبية الضخمة في بيئات الإنتاج." },
+        { name: "Keras", description: "واجهة برمجية عالية المستوى تتيح بناء النماذج الأولية للتعلم العميق واختبارها بسرعة فائقة." }
+      ] 
+    },
+    { 
+      category: "البرمجة وإطارات العمل", 
+      items: [
+        { name: "Python", description: "لغة البرمجة الأساسية والجوكر لتطوير نماذج الذكاء الاصطناعي وأتمتة العمليات البرمجية." },
+        { name: "Scikit-Learn", description: "المكتبة المعيارية لتنفيذ خوارزميات تعلم الآلة الكلاسيكية وبناء خطوط معالجة النماذج." },
+        { name: "SQL", description: "إدارة قواعد البيانات الضخمة وبناء الاستعلامات الهيكلية المعقدة لاستخلاص البيانات." },
+        { name: "FastAPI", description: "إطار عمل حديث وعالي السرعة لبناء خدمات الويب ومسارات نشر نماذج الذكاء الاصطناعي." },
+        { name: "Pandas", description: "الأداة الأولى لمعالجة البيانات المنظمة وتحليل السلاسل الزمنية والجداول الإحصائية." },
+        { name: "NumPy", description: "المكتبة الأساسية للحوسبة العددية عالية الأداء ومعالجة المصفوفات الرياضية المعقدة." }
+      ] 
+    },
+    { 
+      category: "الخدمات السحابية", 
+      items: [
+        { name: "Azure Cloud", description: "نشر حلول الذكاء الاصطناعي وإدارة البنى التحتية الافتراضية على سحابة مايكروسوفت العالمية." },
+        { name: "AWS Cloud", description: "استغلال الحوسبة الموزعة وخدمات التخزين المرنة لبناء منصات علوم بيانات قوية ومستقرة." }
+      ] 
+    },
+    { 
+      category: "تصوير البيانات", 
+      items: [
+        { name: "Power BI", description: "تحويل البيانات الخام إلى لوحات تحكم تفاعلية وقصص بصرية تدعم ذكاء الأعمال الاستراتيجي." },
+        { name: "Tableau", description: "منصة بصرية ديناميكية لاستكشاف البيانات واكتشاف الاستبصارات الهامة في الوقت الفعلي." },
+        { name: "Excel", description: "الأداة المعيارية لتنظيم البيانات الكمية، الاستخدام المتقدم للصيغ، وإعداد التقارير المحورية." }
+      ] 
+    },
+    { 
+      category: "التحليل", 
+      items: [
+        { name: "SPSS", description: "برمجية إحصائية متخصصة للتنقيب المعمق في البيانات وأبحاث العلوم الاجتماعية المعقدة." },
+        { name: "Power BI", description: "دمج مصادر البيانات المتعددة لإجراء تحليلات تشغيلية واستراتيجية شاملة ومؤتمتة." },
+        { name: "Tableau", description: "تجسيد النتائج التحليلية في صور واضحة تساعد صناع القرار على فهم التوجهات المستقبلية." },
+        { name: "Excel", description: "استخدام Power Query والتحليل المحوري لتنظيف البيانات وبناء النماذج المالية الدقيقة." }
+      ] 
+    }
   ],
   allSkills: ["SQL", "Python", "Machine Learning", "Deep Learning", "Power BI", "Tableau", "AWS Cloud", "Azure Cloud", "FastAPI", "NumPy", "Pandas", "TensorFlow", "Pytorch", "Keras", "Scikit-Learn"],
   projects: [

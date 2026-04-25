@@ -53,10 +53,10 @@ export const Certifications = () => {
             >
               {/* Top Badge Glow */}
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <div className="bg-primary text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-[0_0_20px_#f59e0b]">Verified</div>
+                 <div className="bg-primary text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-[0_0_20px_rgba(var(--primary-rgb),0.8)]">Verified</div>
               </div>
 
-              <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-xl group-hover:shadow-[0_0_30px_#f59e0b]">
+              <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-xl group-hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.6)]">
                 <ShieldCheck size={36} />
               </div>
 
