@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { ArrowUpRight, Github, Sparkles, Filter, X, ExternalLink, Code2, Brain, ChevronRight, RefreshCcw } from "lucide-react";
+import { ArrowUpRight, Github, Sparkles, Filter, X, ExternalLink, Code2, Brain, ChevronRight, RefreshCcw, Search, Cpu } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, staggerContainer } from "../utils/animations";
@@ -59,6 +59,41 @@ const ProjectModal = ({ project, isOpen, onClose, t }) => {
                   {project.description}
                 </p>
               </div>
+
+              {/* Case Study Details */}
+              {project.caseStudy && (
+                <div className="space-y-8 mb-10">
+                  <div className="relative p-6 rounded-3xl bg-primary/5 border border-primary/10">
+                    <h4 className="text-[10px] uppercase font-black tracking-widest text-primary mb-3 flex items-center gap-2">
+                      <Search size={12} />
+                      {t('problem')}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed italic">
+                      "{project.caseStudy.problem}"
+                    </p>
+                  </div>
+
+                  <div className="relative p-6 rounded-3xl bg-highlight/5 border border-highlight/10">
+                    <h4 className="text-[10px] uppercase font-black tracking-widest text-highlight mb-3 flex items-center gap-2">
+                      <Cpu size={12} />
+                      {t('solution')}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.caseStudy.solution}
+                    </p>
+                  </div>
+
+                  <div className="relative p-6 rounded-3xl bg-green-500/5 border border-green-500/10">
+                    <h4 className="text-[10px] uppercase font-black tracking-widest text-green-500 mb-3 flex items-center gap-2">
+                      <Sparkles size={12} />
+                      {t('impact')}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed font-bold">
+                      {project.caseStudy.impact}
+                    </p>
+                  </div>
+                </div>
+              )}
 
               <div className="mb-10">
                 <h4 className="text-xs uppercase font-black tracking-[0.2em] text-foreground/50 mb-6 flex items-center gap-2">

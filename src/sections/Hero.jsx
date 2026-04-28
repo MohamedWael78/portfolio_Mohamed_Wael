@@ -174,6 +174,51 @@ export const Hero = () => {
               ))}
             </motion.div>
 
+            {/* Hero CTA Buttons */}
+            <motion.div 
+              variants={fadeIn("up", 0.8)}
+              className="flex flex-wrap gap-6 pt-12"
+            >
+              {/* Resume Button - Functional Link */}
+              <a 
+                href="/resume.pdf" 
+                download="Mohamed_Wael_Resume.pdf"
+                className="group relative p-[2px] rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(var(--primary-rgb),0.1)] block"
+              >
+                {/* Orbiting Line 1 */}
+                <div className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--color-primary)_5%,transparent_10%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Orbiting Line 2 (Opposite) */}
+                <div className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite_reverse] bg-[conic-gradient(from_180deg,transparent_0%,var(--color-highlight)_5%,transparent_10%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Static Border */}
+                <div className="absolute inset-0 rounded-full border border-white/10 group-hover:opacity-0 transition-opacity" />
+
+                <div className="relative px-10 py-4 rounded-full bg-[#0c0a09] flex items-center gap-4 z-10">
+                  <Download size={20} className="text-primary group-hover:animate-bounce" />
+                  <span className="font-black uppercase tracking-[0.2em] text-[13px] text-white">{t('download_resume')}</span>
+                </div>
+              </a>
+
+              {/* Services Button - Functional Scroll */}
+              <button 
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group relative p-[2px] rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(var(--primary-rgb),0.1)]"
+              >
+                {/* Orbiting Line 1 */}
+                <div className="absolute inset-[-1000%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_90deg,transparent_0%,var(--color-primary)_5%,transparent_10%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Orbiting Line 2 (Opposite) */}
+                <div className="absolute inset-[-1000%] animate-[spin_3.5s_linear_infinite_reverse] bg-[conic-gradient(from_270deg,transparent_0%,var(--color-highlight)_5%,transparent_10%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Static Border */}
+                <div className="absolute inset-0 rounded-full border border-white/10 group-hover:opacity-0 transition-opacity" />
+
+                <div className="relative px-10 py-4 rounded-full bg-[#0c0a09] flex items-center gap-4 z-10">
+                  <span className="font-black uppercase tracking-[0.2em] text-[13px] text-white group-hover:text-primary transition-colors">{t('services')}</span>
+                  <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-2" />
+                </div>
+              </button>
+            </motion.div>
+
             {/* Social Links */}
             <motion.div variants={fadeIn("up", 0.9)} className="flex items-center gap-6 pt-10">
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-[0.3em]">{t('network')} </span>
@@ -298,3 +343,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero;

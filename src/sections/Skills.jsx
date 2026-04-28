@@ -1,23 +1,9 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeIn, staggerContainer } from "../utils/animations";
-import { 
-  Code2, 
-  Database, 
-  Cpu, 
-  Globe, 
-  BarChart3, 
-  Zap,
-  Layers,
-  Search,
-  LineChart,
-  BrainCircuit,
-  LayoutGrid,
-  ChevronDown,
-  ChevronUp
-} from "lucide-react";
+import { Sparkles, Code2, Database, Cpu, Globe, BarChart3, Zap, Layers, Search, LineChart, BrainCircuit, LayoutGrid, ChevronDown, ChevronUp, Download, ArrowRight } from "lucide-react";
 
 import { useLanguage, usePortfolioData } from "@/context/LanguageContext";
+import SkillRadar from "@/components/SkillRadar";
 
 const iconMap = {
   "Programming & Frameworks": Code2,
@@ -68,37 +54,38 @@ export const Skills = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div 
-          variants={staggerContainer(0.1, 0.2)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           className="text-center max-w-4xl mx-auto mb-20"
         >
-          <motion.div variants={fadeIn("up", 0.1)} className="mb-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="mb-6">
             <span className="text-primary text-xs font-black tracking-[0.5em] uppercase px-6 py-2 rounded-full glass border border-primary/20">
               {t("skills")}
             </span>
           </motion.div>
           <motion.h2 
-            variants={fadeIn("up", 0.3)}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mt-8 mb-8"
           >
             {t("technical_arsenal")} <span className="text-gradient italic font-serif font-normal">{t("technical_arsenal_bold") || "Arsenal."}</span>
           </motion.h2>
           <motion.p 
-            variants={fadeIn("up", 0.5)}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
             className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto"
           >
             {portfolioData.sectionDescriptions.skills}
           </motion.p>
         </motion.div>
 
+        {/* Interactive Skill Radar */}
+        <div className="max-w-4xl mx-auto mb-24">
+          <SkillRadar data={portfolioData.radarData} />
+        </div>
+
         {/* Tab Navigation */}
         <motion.div 
-          variants={fadeIn("up", 0.6)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
           className="flex flex-wrap justify-center gap-4 mb-16 px-4"
         >
           {/* "All" Tab Button */}
@@ -164,7 +151,6 @@ export const Skills = () => {
                 <motion.div
                   key={skill.name}
                   layout
-                  variants={fadeIn("up", idx * 0.05)}
                   whileHover={{ 
                     y: -15, 
                     scale: 1.02,
@@ -184,13 +170,14 @@ export const Skills = () => {
                       </div>
                       <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-white/5">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                        <span className="text-[9px] uppercase font-black tracking-widest text-primary/70">Certified</span>
+                        <span className="text-[9px] uppercase font-black tracking-widest text-primary/70">{t('proficiency')}</span>
                       </div>
                     </div>
                     
                     <div className="space-y-4 flex-grow">
-                      <h3 className="text-3xl font-black text-foreground group-hover:text-primary transition-colors tracking-tighter leading-tight">
+                      <h3 className="text-3xl font-black text-foreground group-hover:text-primary transition-colors tracking-tighter leading-tight flex items-center gap-3">
                         {skill.name}
+                        <Sparkles size={16} className="text-highlight opacity-0 group-hover:opacity-100 transition-opacity" />
                       </h3>
                       
                       <p className="text-sm text-muted-foreground leading-relaxed h-[60px] line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">
