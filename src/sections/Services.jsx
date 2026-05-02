@@ -41,7 +41,7 @@ export const Services = () => {
         >
           <motion.div variants={fadeIn("up", 0.1)} className="mb-6">
             <span className="text-primary text-xs font-black tracking-[0.5em] uppercase px-6 py-2 rounded-full glass border border-primary/20">
-              {language === 'ar' ? 'الخدمات' : 'Services'}
+              {t('services')}
             </span>
           </motion.div>
           <motion.h2 

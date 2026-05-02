@@ -139,11 +139,11 @@ export const About = () => {
               {/* Image 1: Engineering/Agriculture Context */}
               <motion.div 
                 whileHover={{ rotateY: -15, rotateX: 5, z: 20 }}
-                className="relative z-20 glass rounded-[40px] p-2 border border-primary/30 shadow-2xl overflow-hidden overflow-hidden"
+                className="relative z-20 glass rounded-[40px] p-2 border border-primary/30 shadow-2xl overflow-hidden"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1543286386-713bdd54867e?auto=format&fit=crop&q=80&w=800"
-                  alt="Smart Irrigation Context"
+                  src={portfolioData.personal.avatar}
+                  alt={portfolioData.personal.name}
                   className="w-full aspect-square object-cover rounded-[32px] brightness-75 group-hover:brightness-100 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />

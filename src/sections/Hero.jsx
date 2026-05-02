@@ -53,7 +53,7 @@ export const Hero = () => {
         className="absolute inset-0 z-0"
       >
         <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000"
+          src="/hero-bg.jpg"
           alt="Engineering Backdrop"
           className="w-full h-full object-cover opacity-10"
         />
@@ -247,7 +247,7 @@ export const Hero = () => {
           {/* Right Column - Hero Visual (Interactive Card) */}
           <motion.div
             variants={fadeIn("left", 0.5)}
-            className="relative hidden lg:block"
+            className="relative block"
             style={{ x: moveX, y: moveY }}
           >
             <motion.div
@@ -261,7 +261,7 @@ export const Hero = () => {
               {/* Image Frame */}
               <div className="relative glass rounded-[40px] p-4 glow-border-gold overflow-hidden border border-primary/20 bg-surface/30 backdrop-blur-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                  src={personal.avatar}
                   alt={personal.name}
                   className="w-full aspect-[4/5] object-cover rounded-[32px] grayscale-[30%] hover:grayscale-0 transition-all duration-1000 brightness-90 hover:brightness-100"
                 />

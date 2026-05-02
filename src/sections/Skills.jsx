@@ -187,8 +187,8 @@ export const Skills = () => {
 
                     <div className="mt-10">
                       <div className="flex items-center justify-between mb-3">
-                         <span className="text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground/50">Proficiency</span>
-                         <span className="text-[10px] font-black text-primary">Advanced</span>
+                         <span className="text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground/50">{t('proficiency')}</span>
+                         <span className="text-[10px] font-black text-primary">{t('advanced')}</span>
                       </div>
                       <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                         <motion.div 

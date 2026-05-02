@@ -12,7 +12,7 @@ export const portfolioDataEN = {
     email: "mohamedwael2077@gmail.com",
     linkedin: "https://linkedin.com/in/mohamed-wael-mohamed-9772803a4",
     github: "https://github.com/MohamedWael78",
-    avatar: "/profile-photo.jpg",
+    avatar: "/profile-photo.png",
     phone: "01018575140",
     whatsapp: "https://wa.me/201018575140",
     perspectives: {

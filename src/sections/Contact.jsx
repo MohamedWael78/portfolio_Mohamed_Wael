@@ -37,7 +37,6 @@ export const Contact = () => {
     // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log("Form submitted:", formState);
       
       setSubmitStatus({
         type: "success",
