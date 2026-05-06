@@ -1,13 +1,13 @@
 import { useState } from "react";
+import aiCoreImg from "../assets/ai_core.png";
+import dataVizImg from "../assets/data_viz.png";
 import { 
   BrainCircuit, 
-  Database, 
+  Database,
   LineChart, 
   Cpu, 
-  Zap, 
+  Zap,
   Activity, 
-  Microscope, 
-  Sliders, 
   Briefcase, 
   Terminal, 
   BookOpen,
@@ -44,10 +44,16 @@ export const About = () => {
     { id: "story", label: t('perspective_story'), icon: BookOpen },
   ];
 
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const handleMouseMove = (e) => {
+    const { left, top } = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - left, y: e.clientY - top });
+  };
+
   return (
     <section id="about" className="py-32 relative overflow-hidden bg-surface/20">
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-full h-[500px] bg-[radial-gradient(circle_at_top_right,rgba(var(--primary-rgb),0.05),transparent_70%)]" />
+      <div className="absolute top-0 right-0 w-full h-[500px] bg-[radial-gradient(circle_at_top_right,rgba(var(--primary-rgb),0.07),transparent_70%)] z-0" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
@@ -59,8 +65,17 @@ export const About = () => {
         >
           {/* Left Column - Story & Philosophy */}
           <div className="space-y-12">
-            <motion.div variants={fadeIn("right", 0.1)}>
-              <span className="text-primary text-xs font-black tracking-[0.4em] uppercase px-5 py-2 rounded-full glass border border-primary/20 shadow-[0_0_15px_rgba(var(--primary-rgb),0.1)]">
+            <motion.div 
+              variants={fadeIn("right", 0.1)}
+              whileHover={{ scale: 1.05, x: 5 }}
+              className="w-fit"
+            >
+              <span className="text-primary text-xs font-black tracking-[0.4em] uppercase px-5 py-2 rounded-full glass border border-primary/20 shadow-[0_0_15px_rgba(var(--primary-rgb),0.1)] relative overflow-hidden group">
+                <motion.span 
+                  animate={{ left: ["-100%", "200%"] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent w-1/2 -skew-x-12"
+                />
                 {t('biography')}
               </span>
             </motion.div>
@@ -71,23 +86,28 @@ export const About = () => {
               </h2>
 
               {/* Perspective Switcher UI */}
-              <div className="flex gap-2 p-1.5 glass rounded-2xl w-fit">
+              <div className="flex gap-2 p-1.5 glass rounded-2xl w-fit relative z-20">
                 {switcherModes.map((mode) => (
                   <button
                     key={mode.id}
                     onClick={() => setActivePerspective(mode.id)}
                     className={`relative px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 flex items-center gap-2 group ${
-                      activePerspective === mode.id ? "text-background" : "text-muted-foreground hover:text-primary"
+                      activePerspective === mode.id ? "text-background shadow-lg" : "text-muted-foreground hover:text-primary"
                     }`}
                   >
                     {activePerspective === mode.id && (
                       <motion.div
                         layoutId="activePerspectiveBg"
-                        className="absolute inset-0 bg-primary z-0 rounded-xl"
+                        className="absolute inset-0 bg-primary z-0 rounded-xl shadow-[0_0_15px_rgba(var(--primary-rgb),0.5)]"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
-                    <mode.icon size={12} className="relative z-10" />
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      className="relative z-10"
+                    >
+                      <mode.icon size={12} />
+                    </motion.div>
                     <span className="relative z-10">{mode.label}</span>
                   </button>
                 ))}
@@ -130,79 +150,132 @@ export const About = () => {
             </motion.div>
           </div>
 
-          {/* Right Column - Vivid Contextual Visual */}
+          {/* Right Column - Bento Hub */}
           <motion.div 
             variants={fadeIn("left", 0.5)}
-            className="relative"
+            onMouseMove={handleMouseMove}
+            className="relative w-full group/bento"
           >
-            <div className="relative group perspective-1000">
-              {/* Image 1: Engineering/Agriculture Context */}
+            {/* Desktop Spotlight Effect */}
+            <div 
+              className="pointer-events-none absolute -inset-20 z-30 opacity-0 group-hover/bento:opacity-100 transition-opacity duration-500 hidden lg:block"
+              style={{
+                background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(var(--primary-rgb), 0.1), transparent 80%)`,
+              }}
+            />
+
+            <div className="grid grid-cols-6 grid-rows-6 gap-3 sm:gap-4 h-[450px] md:h-[550px] w-full max-w-[500px] mx-auto lg:ml-auto">
+              
+              {/* Tile 1: AI Pulse (Main) */}
               <motion.div 
-                whileHover={{ rotateY: -15, rotateX: 5, z: 20 }}
-                className="relative z-20 glass rounded-[40px] p-2 border border-primary/30 shadow-2xl overflow-hidden"
+                whileHover={{ y: -5, scale: 1.01 }}
+                className="col-span-4 row-span-4 glass rounded-3xl flex flex-col justify-between border border-primary/20 relative overflow-hidden group/tile shadow-xl"
               >
-                <img
-                  src={portfolioData.personal.avatar}
-                  alt={portfolioData.personal.name}
-                  className="w-full aspect-square object-cover rounded-[32px] brightness-75 group-hover:brightness-100 transition-all duration-700"
+                {/* Background Image Overlay */}
+                <img 
+                  src={aiCoreImg} 
+                  alt="AI Core" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover/tile:opacity-40 transition-opacity duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-8 left-8">
-                    <div className="flex items-center gap-2 text-primary font-black text-xs uppercase tracking-widest mb-1">
-                        <Microscope size={14} />
-                        Graduation Focus
-                    </div>
-                    <div className="text-2xl font-bold text-foreground">Smart Systems</div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent z-0" />
+                
+                <div className="relative z-10 p-6 sm:p-8">
+                  <motion.div 
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    className="w-10 sm:w-12 h-10 sm:h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary mb-4 sm:mb-6"
+                  >
+                    <BrainCircuit size={24} />
+                  </motion.div>
+                  <h3 className="text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">Applied AI</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed">Architecting models that transform raw data into actionable intelligence.</p>
+                </div>
+                
+                {/* Micro-animation: Data bars */}
+                <div className="relative z-10 mt-auto flex items-end gap-1.5 h-12 p-6 sm:p-8 pt-0">
+                   {[40, 70, 45, 90, 65, 85, 55].map((h, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ height: `${h}%` }}
+                        transition={{ 
+                          duration: 1.5, 
+                          delay: i * 0.1, 
+                          repeat: Infinity, 
+                          repeatType: "reverse" 
+                        }}
+                        className="w-full bg-primary/30 rounded-t-[2px] group-hover/tile:bg-primary transition-colors duration-500"
+                      />
+                   ))}
                 </div>
               </motion.div>
 
-              {/* Floating Element: AI Overlay */}
+              {/* Tile 2: Status Pulse */}
               <motion.div 
-                animate={{ 
-                  y: [0, -30, 0],
-                  rotate: [0, 5, 0] 
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-10 -right-10 z-30 w-56 h-56 glass rounded-[30px] p-6 border border-primary/50 shadow-[0_0_50px_rgba(var(--primary-rgb),0.2)] flex flex-col justify-between"
+                whileHover={{ y: -5, backgroundColor: "rgba(var(--primary-rgb), 0.05)" }}
+                className="col-span-2 row-span-2 glass rounded-3xl p-4 border border-primary/20 flex flex-col items-center justify-center text-center shadow-lg transition-colors cursor-default"
               >
-                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-black">
-                  <BrainCircuit size={24} />
+                <div className="relative">
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping absolute inset-0" />
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full relative" />
                 </div>
-                <div className="space-y-2">
-                  <div className="text-xs font-black text-primary uppercase tracking-widest">Training Progress</div>
-                  <div className="h-1.5 w-full bg-foreground/10 rounded-full overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "95%" }}
-                      transition={{ duration: 2, delay: 1 }}
-                      className="h-full bg-gradient-to-r from-primary to-highlight" 
-                    />
-                  </div>
-                  <div className="text-[10px] text-muted-foreground font-bold">Applied AI Specialist Path</div>
+                <div className="text-[10px] sm:text-xs font-black text-foreground mt-3 uppercase tracking-widest">Available</div>
+                <div className="text-[8px] sm:text-[10px] text-muted-foreground mt-1 font-bold">FOR OPPORTUNITIES</div>
+              </motion.div>
+
+              {/* Tile 3: Tech Focus */}
+              <motion.div 
+                whileHover={{ y: -5, rotate: 2 }}
+                className="col-span-2 row-span-2 glass rounded-3xl p-4 border border-primary/20 flex flex-col items-center justify-center text-center shadow-lg cursor-default"
+              >
+                <Cpu className="text-primary mb-2 group-hover/bento:animate-pulse" size={20} />
+                <div className="text-xs font-black text-foreground uppercase tracking-tight">PyTorch</div>
+                <div className="text-[9px] text-muted-foreground font-bold">DEEP LEARNING</div>
+              </motion.div>
+
+              {/* Tile 4: Experience Stats */}
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="col-span-3 row-span-2 glass rounded-3xl p-5 border border-primary/20 flex flex-col justify-center shadow-lg relative overflow-hidden group/exp"
+              >
+                <motion.div 
+                  initial={{ opacity: 0.5 }}
+                  whileHover={{ opacity: 1, x: 5 }}
+                  className="relative z-10"
+                >
+                  <div className="text-3xl sm:text-4xl font-black text-primary italic leading-none">2+</div>
+                  <div className="text-[10px] sm:text-xs font-black text-foreground uppercase mt-1">Years Experience</div>
+                </motion.div>
+                <div className="w-full h-1 bg-foreground/10 rounded-full mt-3 overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "70%" }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                    className="h-full bg-primary group-hover/exp:bg-highlight transition-colors duration-500" 
+                  />
                 </div>
               </motion.div>
 
-              {/* Data Visualization Fragment */}
+              {/* Tile 5: Data Insight */}
               <motion.div 
-                animate={{ 
-                  x: [0, -20, 0],
-                  y: [0, 20, 0] 
-                }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-10 -left-10 z-30 glass rounded-3xl p-6 border border-primary/50 shadow-2xl"
+                whileHover={{ y: -5 }}
+                className="col-span-3 row-span-2 glass rounded-3xl p-5 border border-primary/20 flex flex-col justify-center relative overflow-hidden shadow-lg group/insight cursor-help"
               >
-                <LineChart className="text-primary w-12 h-12" />
-                <div className="mt-4 space-y-1">
-                   <div className="flex gap-1">
-                     <span className="w-2 h-4 bg-primary/20 rounded-sm" />
-                     <span className="w-2 h-6 bg-primary/40 rounded-sm" />
-                     <span className="w-2 h-8 bg-primary rounded-sm shadow-[0_0_10px_rgba(var(--primary-rgb),0.8)]" />
-                     <span className="w-2 h-5 bg-primary/20 rounded-sm" />
-                   </div>
-                   <div className="text-[10px] font-black text-primary uppercase">Analytics</div>
+                <img 
+                  src={dataVizImg} 
+                  alt="Data Viz" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover/insight:opacity-30 transition-opacity duration-700"
+                />
+                <LineChart className="text-primary/20 absolute -right-2 -bottom-2 w-16 h-16 rotate-12 group-hover/insight:rotate-0 group-hover/insight:scale-110 transition-all duration-500 z-10" />
+                <div className="relative z-20">
+                  <div className="text-sm sm:text-base font-black text-foreground uppercase leading-none tracking-tighter">Insights</div>
+                  <p className="text-[9px] sm:text-[10px] text-muted-foreground mt-1 font-medium italic">"Data speaks, I translate."</p>
                 </div>
               </motion.div>
             </div>
+            
+            {/* Ambient Background Glows */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-[100px] rounded-full -z-10" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-highlight/10 blur-[100px] rounded-full -z-10" />
           </motion.div>
         </motion.div>
       </div>

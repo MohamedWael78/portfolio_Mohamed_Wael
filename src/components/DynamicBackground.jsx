@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
+import aiCoreImg from "../assets/ai_core.png";
 
+// Main dynamic background component with neural network and base AI texture
 export const DynamicBackground = () => {
   const canvasRef = useRef(null);
 
@@ -142,7 +144,12 @@ export const DynamicBackground = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1] bg-background transition-colors duration-700">
+    <div className="fixed inset-0 z-[-1] bg-background transition-colors duration-700 overflow-hidden">
+      {/* Base AI Texture */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none scale-110">
+        <img src={aiCoreImg} alt="" className="w-full h-full object-cover" />
+      </div>
+
       {/* Neural Network Canvas */}
       <canvas
         ref={canvasRef}

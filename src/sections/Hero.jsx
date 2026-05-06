@@ -266,26 +266,7 @@ export const Hero = () => {
                   className="w-full aspect-[4/5] object-cover rounded-[32px] grayscale-[30%] hover:grayscale-0 transition-all duration-1000 brightness-90 hover:brightness-100"
                 />
 
-                {/* Interactive Overlay Elements */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className={`absolute -bottom-6 ${language === 'ar' ? '-left-6' : '-right-6'} glass rounded-2xl px-6 py-5 border border-primary/30 shadow-2xl`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-[0_0_15px_#22c55e]" />
-                    <span className="text-sm font-bold tracking-wide uppercase">{t('hero_open')}</span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className={`absolute -top-6 ${language === 'ar' ? '-right-6' : '-left-6'} glass rounded-2xl px-6 py-5 border border-primary/30 shadow-2xl`}
-                >
-                  <div className="text-3xl font-black text-primary italic">9+</div>
-                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{t('hero_months')}</div>
-                </motion.div>
+                {/* Interactive Overlay Elements removed per user request */}
               </div>
             </motion.div>
           </motion.div>
